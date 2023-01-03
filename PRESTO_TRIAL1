@@ -82,10 +82,7 @@ for filename in os.listdir():
 #os.system('cat *.candidates >> ALL.Candidates')
 
 #%%
-print("hello")
-
-#%%
-os.system('gv F_t141121_212427.sf/*_singlepulse.ps')
+# os.system('gv F_t141121_212427.sf/*_singlepulse.ps')
 
 
 
