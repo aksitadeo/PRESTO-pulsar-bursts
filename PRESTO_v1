@@ -10,6 +10,7 @@ Created on Mon Dec  5 10:49:04 2022
 import os
 
 # %% Rfifinds
+
 def rfifind(data,time,name):
     # Parameters 
     # data:
@@ -22,10 +23,10 @@ def rfifind(data,time,name):
 def prepsubband(name,chan,lodm,dmstep,numdms,data):
     # Parameters
     # chan:
-    # lodm
-    # dmstepbackspace
-    # numdms
-    # data
+    # lodm:
+    # dmstep:
+    # numdms:
+    # data:
     return 'prepsubband -mask {}_rfifind.mask -noscales -nsub 64 -ignorechan {} -lodm {} -dmstep {} -numdms {} -zerodm -o {} {}'.format(name,chan,lodm,dmstep,numdms,name, data)
     
 # %% Single pulse search
@@ -58,21 +59,16 @@ def PRESTO(data,name,time,chan,lodm,dmstep,numdms,threshold,ms):
     os.system('touch {}.candidates'.format(data))
     os.system('cat *.singlepulse >> {}.candidates'.format(data))
     
+    # make directory with all candidates
     os.system("mkdir F_{}/".format(data))
     os.system("mv {}* F_{}/".format(name,data))
 
-# %% Source 1
+# %% One source
 
 PRESTO(data = 't180301_221038.sf',name = 't180301_221038.sfTEST',time = '0.5',chan = '0', lodm = '200', dmstep = '10', numdms = '80', threshold = '30', ms = '0.02')
 
-#%%
 
-
-
-
-
-
-#%% Looping
+#%% Looping over all sources
 for filename in os.listdir():
     if filename.endswith(".sf"):
         print(" ")
