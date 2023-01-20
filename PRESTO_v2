@@ -81,3 +81,6 @@ for filename in os.listdir():
         print(" ")
         print("Now working on: {}".format(filename))
         PRESTO(data = '{}'.format(filename),name = '{}TEST'.format(filename),time = '5.0',chan = '0', lodm = '770', dmstep = '10', numdms = '10', threshold = '30', ms = '0.05')
+
+
+
